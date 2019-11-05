@@ -32,7 +32,7 @@ var vm = new Vue({
     el:'#container',
     router
 });
-把router注册到指定的挂载点下
+把router注册到指定的挂载点下；
 4.路由对应的组件显示
  <router-link to="/main">首页</router-link>
  <router-link to="/message">消息页</router-link>
