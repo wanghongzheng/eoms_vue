@@ -2,7 +2,7 @@
 
 一、路由使用原理
 
-1.声明路由规则
+1.声明路由规则：
 const routes = [
     {
         path:'/',component:Main
@@ -20,13 +20,13 @@ component:"路径所对应的组件"
 
 先定义路径所对应的组件，浏览器指定到相应的路由下就会自动跳转到所对应的组件（完成了路由功能）
 
-2.创建router实例
+2.创建router实例：
 const router = new Router({
     routes
 });
 创建router实例，并把routes传递进入;
 
-3.注册router
+3.注册router：
 //创建Vue并挂载，注册路由
 var vm = new Vue({
     el:'#container',
