@@ -36,16 +36,11 @@ var vm = new Vue({
 
 4.路由对应的组件显示
 <div id="app">
-        <h1>hello app</h1>
+        <h1>router练习</h1>
         <p>
-            <!-- 使用router-link组件来导航 -->
             <router-link to="/main">首页</router-link>
             <router-link to="/message">消息页</router-link>
         </p>
- 
-        <!-- 
-            路由出口路由匹配到的在这里
-         -->
          <router-view></router-view>
     </div>
 如何让我在点击不同的按钮进不同的路由「不是的组件呢？」，这里就要使用到 <router-link to="路由配置中的路径">比如首页<router-link />，从名字就可以看出来就是路由链接到那个路径，路径会匹配出相应的组件显示在 router-view 中
