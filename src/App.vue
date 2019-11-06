@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <p>
+   <!-- <p>
       <router-link to="/index" class="r1">首页</router-link>
       <router-link to="/message" class="r1">消息页</router-link>
-    </p>
-    <router-view></router-view>
+    </p>-->
+    <router-view class="routerClass"></router-view>
   </div>
 </template>
 
@@ -15,14 +15,13 @@
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  overflow: hidden;
 }
-.r1{
-  margin:10px;
+.routerClass{
+  position:absolute;
+  width:100%;
+  overflow: hidden;
+  transition: all .8s ease;
 }
-
 </style>
