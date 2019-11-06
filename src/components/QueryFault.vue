@@ -125,7 +125,7 @@
     .head{
         background:#3f51b5;
         color:#fff;
-        padding:20px 15px;
+        padding:10px;
         i{
             padding-right:0px;
             padding-left:10px;
@@ -161,7 +161,7 @@
         margin-bottom:10px;
     }
     .content{
-        height:calc(100vh - 62px);
+        height:calc(100vh - 60px);
         overflow-y: auto;
         overflow-x: hidden;
     }
