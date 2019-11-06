@@ -1,7 +1,8 @@
 <template>
     <div>
         <div class="head">
-            <el-button style="padding-right: 4px" type="text">
+            <el-button style="padding-right: 4px" type="text"
+            v-on:click="goBack">
                 <i class="el-icon-back" style="color:#fff;"></i>
             </el-button>
             <label>故障列表</label>
@@ -115,6 +116,7 @@
         methods: {
             goBack() {
                 console.log('go back');
+                this.$router.go(-1);
             }
         }
     }
