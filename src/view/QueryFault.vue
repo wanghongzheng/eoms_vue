@@ -6,10 +6,10 @@
                 <i class="el-icon-back" style="color:#fff;"></i>
             </el-button>
             <label>故障列表</label>
-            <el-button style="float:right;padding-right: 4px" type="text">
+            <el-button style="float:right;padding-right: 4px" type="text" @click="drawer = true">
                 <i class="el-icon-refresh" style="float:right;color:#fff;"></i>
             </el-button>
-            <el-button style="float:right;padding-right: 4px" type="text">
+            <el-button style="float:right;padding-right: 4px" type="text" @click="drawer = true">
                 <i class="el-icon-search" style="float:right;color:#fff;"></i>
             </el-button>
         </div>
@@ -107,16 +107,39 @@
                     </div>
                 </div>
             </el-card>
-
         </div>
+        <el-drawer
+                title="我是标题"
+                :visible.sync="drawer"
+                :direction="direction"
+                :before-close="handleClose">
+            <span>我来啦!</span>
+        </el-drawer>
     </div>
 </template>
 <script>
     export default {
+        data() {
+            return {
+                drawer: false,
+                direction: 'ttb',
+            };
+        },
         methods: {
             goBack() {
                 console.log('go back');
                 this.$router.go(-1);
+            },
+            searchFault(){
+                this.$message.success("查询");
+                this.$router.push("/queryfault/searchcomponent")
+            },
+            handleClose(done) {
+                this.$confirm('确认关闭？')
+                    .then(_ => {
+                        done();
+                    })
+                    .catch(_ => {});
             }
         }
     }
