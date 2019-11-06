@@ -12,40 +12,40 @@
                 <div>
                     <el-row :gutter="10">
                         <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
-                            <div class="grid-content bg-purple">
+                            <a class="grid-content bg-purple" v-on:click="loadPage('故障查询1')">
                                 <el-image :src=faultImage></el-image>
-                                <label>故障查询</label>
-                            </div>
+                                <label>故障查询1</label>
+                            </a>
                         </el-col>
                         <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
-                            <div class="grid-content bg-purple">
+                            <a class="grid-content bg-purple" v-on:click="loadPage('故障查询2')">
                                 <el-image :src=faultImage></el-image>
-                                <label>故障查询</label>
-                            </div>
+                                <label>故障查询2</label>
+                            </a>
                         </el-col>
                         <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
-                            <div class="grid-content bg-purple">
+                            <a class="grid-content bg-purple" v-on:click="loadPage('故障查询3')">
                                 <el-image :src=faultImage></el-image>
-                                <label>故障查询</label>
-                            </div>
+                                <label>故障查询3</label>
+                            </a>
                         </el-col>
                         <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
-                            <div class="grid-content bg-purple">
+                            <a class="grid-content bg-purple" v-on:click="loadPage('故障查询4')">
                                 <el-image :src=faultImage></el-image>
-                                <label>故障查询</label>
-                            </div>
+                                <label>故障查询4</label>
+                            </a>
                         </el-col>
                         <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
-                            <div class="grid-content bg-purple">
+                            <a class="grid-content bg-purple" v-on:click="loadPage('故障查询5')">
                                 <el-image :src=faultImage></el-image>
-                                <label>故障查询</label>
-                            </div>
+                                <label>故障查询5</label>
+                            </a>
                         </el-col>
                         <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
-                            <div class="grid-content bg-purple">
+                            <a class="grid-content bg-purple" v-on:click="loadPage('故障查询6')">
                                 <el-image :src=faultImage></el-image>
-                                <label>故障查询</label>
-                            </div>
+                                <label>故障查询6</label>
+                            </a>
                         </el-col>
                     </el-row>
                 </div>
@@ -57,10 +57,10 @@
                 <div>
                     <el-row :gutter="10">
                         <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
-                            <div class="grid-content bg-purple">
+                            <a class="grid-content bg-purple" v-on:click="loadPage('设备信息')">
                                 <el-image :src="deviceInfoImage"></el-image>
                                 <label>设备信息</label>
-                            </div>
+                            </a>
                         </el-col>
                     </el-row>
                 </div>
@@ -76,6 +76,11 @@ export default {
           faultImage: require('../assets/fault.png'),
           deviceInfoImage:require('../assets/info.png')
       }
+    },
+    methods: {
+        loadPage(title){
+            this.$message.success(title);
+        }
     }
 }
 </script>
@@ -83,6 +88,9 @@ export default {
 <style scoped lang="scss">
     .el-col {
         border-radius: 4px;
+    }
+    .box-card a{
+        cursor:pointer;
     }
     .grid-content {
         border-radius: 4px;
