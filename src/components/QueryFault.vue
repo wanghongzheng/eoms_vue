@@ -11,8 +11,6 @@
             <el-button style="float:right;padding-right: 4px" type="text">
                 <i class="el-icon-search" style="float:right;color:#fff;"></i>
             </el-button>
-
-
         </div>
         <div class="content">
             <el-card class="box-card">
