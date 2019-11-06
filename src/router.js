@@ -1,6 +1,6 @@
-import Message from "./components/Message";
-import Index from "./components/Index";
-import QueryFault from "./components/QueryFault";
+import Message from "./view/Message";
+import Index from "./view/Index";
+import QueryFault from "./view/QueryFault";
 import Vue from "vue";
 import Router from "vue-router";
 Vue.use(Router);
