@@ -1,10 +1,18 @@
 <template>
     <div>
         <div class="head">
-            <i class="el-icon-back"></i>
+            <el-button style="padding-right: 4px" type="text">
+                <i class="el-icon-back" style="color:#fff;"></i>
+            </el-button>
             <label>故障列表</label>
-            <i class="el-icon-refresh" style="float:right;margin-right:15px;"></i>
-            <i class="el-icon-search" style="float:right;"></i>
+            <el-button style="float:right;padding-right: 4px" type="text">
+                <i class="el-icon-refresh" style="float:right;color:#fff;"></i>
+            </el-button>
+            <el-button style="float:right;padding-right: 4px" type="text">
+                <i class="el-icon-search" style="float:right;color:#fff;"></i>
+            </el-button>
+
+
         </div>
         <div class="content">
             <el-card class="box-card">
