@@ -14,31 +14,37 @@
                         <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
                             <div class="grid-content bg-purple">
                                 <el-image :src=faultImage></el-image>
+                                <label>故障查询</label>
                             </div>
                         </el-col>
                         <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
                             <div class="grid-content bg-purple">
                                 <el-image :src=faultImage></el-image>
+                                <label>故障查询</label>
                             </div>
                         </el-col>
                         <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
                             <div class="grid-content bg-purple">
                                 <el-image :src=faultImage></el-image>
+                                <label>故障查询</label>
                             </div>
                         </el-col>
                         <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
                             <div class="grid-content bg-purple">
                                 <el-image :src=faultImage></el-image>
+                                <label>故障查询</label>
                             </div>
                         </el-col>
                         <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
                             <div class="grid-content bg-purple">
                                 <el-image :src=faultImage></el-image>
+                                <label>故障查询</label>
                             </div>
                         </el-col>
                         <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
                             <div class="grid-content bg-purple">
                                 <el-image :src=faultImage></el-image>
+                                <label>故障查询</label>
                             </div>
                         </el-col>
                     </el-row>
@@ -52,7 +58,8 @@
                     <el-row :gutter="10">
                         <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
                             <div class="grid-content bg-purple">
-                                <el-image :src=faultImage></el-image>
+                                <el-image :src="deviceInfoImage"></el-image>
+                                <label>设备信息</label>
                             </div>
                         </el-col>
                     </el-row>
@@ -66,7 +73,8 @@ export default {
   name: 'index',
     data(){
       return{
-          faultImage: require('../assets/fault.png')
+          faultImage: require('../assets/fault.png'),
+          deviceInfoImage:require('../assets/info.png')
       }
     }
 }
@@ -79,6 +87,12 @@ export default {
     .grid-content {
         border-radius: 4px;
         min-height: 36px;
+        label{
+            display: block;
+            width: 106px;
+            text-align: center;
+            margin-bottom: 15px;;
+        }
     }
 .head{
     background:#3f51b5;
