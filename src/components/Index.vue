@@ -86,6 +86,11 @@ export default {
     methods: {
         loadPage(title){
             this.$message.success(title);
+            var str = "故障查询1";
+            if(title==str){
+                this.$router.push('/queryfault')
+            }
+
         }
     }
 }
