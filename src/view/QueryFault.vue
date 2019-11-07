@@ -20,9 +20,15 @@
                         <i class="el-icon-success" style="color:#008000;"></i>
                         镇江市联程化学工业有限公司
                     </span>
-                    <el-button style="float: right; padding: 3px 0" type="text">
-                        <i class="el-icon-caret-bottom" style="color:#008000;"></i>
-                    </el-button>
+                    <el-dropdown trigger="click" @command="handleFault" style="float: right;">
+                        <el-button style="float: right; padding: 3px 0" type="text">
+                            <i class="el-icon-caret-bottom" style="color:#008000;"></i>
+                        </el-button>
+                        <el-dropdown-menu slot="dropdown">
+                            <el-dropdown-item></el-dropdown-item>
+                            <el-dropdown-item>故障处理</el-dropdown-item>
+                        </el-dropdown-menu>
+                    </el-dropdown>
                 </div>
                 <div class="text">
                     <div class="item">
@@ -136,10 +142,6 @@
                 console.log('go back');
                 this.$router.go(-1);
             },
-            searchFault(){
-                this.$message.success("查询");
-                //this.$router.push("/queryfault/searchcomponent")
-            },
             handleClose(done) {
                 this.$confirm('确认关闭？')
                     .then(_ => {
@@ -150,6 +152,9 @@
                         console.info(_);
                     });
 
+            },
+            handleFault(){
+                this.$router.push("./faultHandle");
             },
             submitInfo(param){
                 this.drawer = false;

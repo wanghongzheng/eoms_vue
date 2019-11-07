@@ -1,6 +1,7 @@
 import Message from "./view/Message";
 import Index from "./view/Index";
 import QueryFault from "./view/QueryFault";
+import FaultHandle from "./view/FaultHandle";
 import Vue from "vue";
 import Router from "vue-router";
 Vue.use(Router);
@@ -17,6 +18,9 @@ const routes = [
     },
     {
         path:'/queryfault',component:QueryFault
+    },
+    {
+        path:'/faultHandle',component:FaultHandle
     }
 ];
 //创建router实例
