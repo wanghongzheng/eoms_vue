@@ -109,21 +109,27 @@
             </el-card>
         </div>
         <el-drawer
-                title="我是标题"
+                title="查询条件设置"
+                size="100%"
                 :visible.sync="drawer"
                 :direction="direction"
+                ref="drawer"
                 :before-close="handleClose">
-            <span>我来啦!</span>
+            <SearchComponent  :visible.sync="drawer" @submitInfo="submitInfo"></SearchComponent>
         </el-drawer>
     </div>
 </template>
 <script>
+    import SearchComponent from "../components/SearchComponent"
     export default {
         data() {
             return {
                 drawer: false,
                 direction: 'ttb',
             };
+        },
+        components: {
+            SearchComponent
         },
         methods: {
             goBack() {
@@ -132,14 +138,22 @@
             },
             searchFault(){
                 this.$message.success("查询");
-                this.$router.push("/queryfault/searchcomponent")
+                //this.$router.push("/queryfault/searchcomponent")
             },
             handleClose(done) {
                 this.$confirm('确认关闭？')
                     .then(_ => {
                         done();
+                        console.info(_);
                     })
-                    .catch(_ => {});
+                    .catch(_ => {
+                        console.info(_);
+                    });
+
+            },
+            submitInfo(param){
+                this.drawer = false;
+                this.$message.success(param.beginTime +"===="+param.endTime+"==="+param.value);
             }
         }
     }
