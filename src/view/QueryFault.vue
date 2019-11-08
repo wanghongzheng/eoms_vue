@@ -175,10 +175,9 @@
     }
     .text {
         font-size: 14px;
-        margin-bottom: 5px;
         .item{
             display:block;
-            padding:3px;
+            padding:1px;
             .leftLabel{
 
             }
@@ -209,5 +208,12 @@
         height:calc(100vh - 60px);
         overflow-y: auto;
         overflow-x: hidden;
+    }
+</style>
+<style lang="scss">
+    .content .el-card__header{
+        padding:12px 20px;
+        font-size:14px;
+        font-weight:bold;
     }
 </style>
