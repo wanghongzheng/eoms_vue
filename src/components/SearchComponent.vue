@@ -4,36 +4,36 @@
             <el-form :model="form">
                 <el-form-item label="开始时间" :label-width="formLabelWidth">
                     <el-date-picker
-                            v-model="form.beginTime"
-                            type="datetime"
-                            placeholder="选择日期时间"
-                            style="width:100%"
-                            format="yyyy-MM-dd HH:mm:ss" value-format="yyyy-MM-dd HH:mm:ss"
-                            default-time = "00:00:00"
-                            @change="dateChangeBeginTime">
+                        v-model="form.beginTime"
+                        type="datetime"
+                        placeholder="选择日期时间"
+                        style="width:100%"
+                        format="yyyy-MM-dd HH:mm:ss" value-format="yyyy-MM-dd HH:mm:ss"
+                        default-time = "00:00:00"
+                        @change="dateChangeBeginTime">
                     </el-date-picker>
                 </el-form-item>
 
                 <el-form-item label="结束时间" :label-width="formLabelWidth">
                     <el-date-picker
-                            v-model="form.endTime"
-                            type="datetime"
-                            placeholder="选择日期时间"
-                            style="width:100%"
-                            format="yyyy-MM-dd HH:mm:ss" value-format="yyyy-MM-dd HH:mm:ss"
-                            default-time = "23:59:59"
-                            @change="dateChangeEndTime">
+                        v-model="form.endTime"
+                        type="datetime"
+                        placeholder="选择日期时间"
+                        style="width:100%"
+                        format="yyyy-MM-dd HH:mm:ss" value-format="yyyy-MM-dd HH:mm:ss"
+                        default-time = "23:59:59"
+                        @change="dateChangeEndTime">
                     </el-date-picker>
                 </el-form-item>
 
                 <el-form-item label="任务类型" :label-width="formLabelWidth">
                     <el-select v-model="form.value"  filterable placeholder="请选择" style="width:100%">
                         <el-option
-                                v-for="item in options"
-                                :key="item.value"
-                                :label="item.label"
-                                :value="item.value"
-                                autocomplete="off">
+                            v-for="item in options"
+                            :key="item.value"
+                            :label="item.label"
+                            :value="item.value"
+                            autocomplete="off">
                         </el-option>
                     </el-select>
                 </el-form-item>
