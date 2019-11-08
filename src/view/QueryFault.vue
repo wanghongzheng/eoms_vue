@@ -190,7 +190,7 @@
     }
 
   .el-icon-success,.el-icon-caret-bottom{
-      color:#409EFF;
+      color:#2196f3;
   }
     .clearfix:before,
     .clearfix:after {
