@@ -13,7 +13,7 @@
                 <label class="op">
                     请设置
                     <el-button style="padding-right: 4px" type="text"
-                               v-on:click="goBack">
+                               v-on:click="goFaultBaseInfo">
                         <i class="el-icon-arrow-right" style="color:green;font-weight: bold;"></i>
                     </el-button>
                 </label>
@@ -81,6 +81,9 @@
             goBack() {
                 console.log('go back');
                 this.$router.go(-1);
+            },
+            goFaultBaseInfo(){
+                this.$router.push("/faultHandle/FaultBaseInfo");
             },
             handleRemove(file) {
                 console.log(file);
