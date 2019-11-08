@@ -17,12 +17,12 @@
             <el-card class="box-card">
                 <div slot="header" class="clearfix">
                     <span>
-                        <i class="el-icon-success" style="color:#008000;"></i>
+                        <i class="el-icon-success"></i>
                         镇江市联程化学工业有限公司
                     </span>
                     <el-dropdown trigger="click" @command="handleFault" style="float: right;">
                         <el-button style="float: right; padding: 3px 0" type="text">
-                            <i class="el-icon-caret-bottom" style="color:#008000;"></i>
+                            <i class="el-icon-caret-bottom"></i>
                         </el-button>
                         <el-dropdown-menu slot="dropdown">
                             <el-dropdown-item></el-dropdown-item>
@@ -54,11 +54,11 @@
             <el-card class="box-card">
                 <div slot="header" class="clearfix">
                     <span>
-                         <i class="el-icon-success" style="color:#008000;"></i>
+                         <i class="el-icon-success" ></i>
                          镇江市联程化学工业有限公司
                     </span>
                     <el-button style="float: right; padding: 3px 0" type="text">
-                        <i class="el-icon-caret-bottom" style="color:#008000;"></i>
+                        <i class="el-icon-caret-bottom" ></i>
                     </el-button>
                 </div>
                 <div class="text">
@@ -85,11 +85,11 @@
             <el-card class="box-card">
                 <div slot="header" class="clearfix">
                     <span>
-                         <i class="el-icon-success" style="color:#008000;"></i>
+                         <i class="el-icon-success" ></i>
                          镇江市联程化学工业有限公司
                     </span>
                     <el-button style="float: right; padding: 3px 0" type="text">
-                        <i class="el-icon-caret-bottom" style="color:#008000;"></i>
+                        <i class="el-icon-caret-bottom"></i>
                     </el-button>
                 </div>
                 <div class="text">
@@ -175,20 +175,23 @@
     }
     .text {
         font-size: 14px;
-        margin-bottom: 18px;
+        margin-bottom: 5px;
         .item{
             display:block;
+            padding:3px;
             .leftLabel{
 
             }
             .rightLabel{
                 float:right;
-                font-weight:bold;
+                font-weight:500;
             }
         }
     }
 
-
+  .el-icon-success,.el-icon-caret-bottom{
+      color:#409EFF;
+  }
     .clearfix:before,
     .clearfix:after {
         display: table;

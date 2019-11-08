@@ -14,7 +14,7 @@
                     请设置
                     <el-button style="padding-right: 4px" type="text"
                                v-on:click="goFaultBaseInfo">
-                        <i class="el-icon-arrow-right" style="color:green;font-weight: bold;"></i>
+                        <i class="el-icon-arrow-right" style="color:#333;font-weight: bold;"></i>
                     </el-button>
                 </label>
             </div>
@@ -23,8 +23,8 @@
                 <label class="op">
                     请选择
                     <el-button style="padding-right: 4px" type="text"
-                               v-on:click="goBack">
-                        <i class="el-icon-arrow-right" style="color:green;font-weight: bold;"></i>
+                               v-on:click="goUpdateDevicePart">
+                        <i class="el-icon-arrow-right" style="color:#333;font-weight: bold;"></i>
                     </el-button>
                 </label>
             </div>
@@ -38,7 +38,6 @@
                             :on-preview="handlePictureCardPreview"
                             :on-remove="handleRemove"
                             :on-change="handleLimit"
-
                             :limit="3"
                             multiple
                             :class="{disabled:uploadDisabled}"
@@ -84,6 +83,9 @@
             },
             goFaultBaseInfo(){
                 this.$router.push("/faultHandle/FaultBaseInfo");
+            },
+            goUpdateDevicePart(){
+                this.$router.push("/faultHandle/UpdateDevicePart");
             },
             handleRemove(file) {
                 console.log(file);

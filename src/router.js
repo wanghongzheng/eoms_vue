@@ -3,6 +3,7 @@ import Index from "./view/Index";
 import QueryFault from "./view/QueryFault";
 import FaultHandle from "./view/FaultHandle";
 import FaultBaseInfo from "./view/FaultBaseInfo";
+import UpdateDevicePart from "./view/UpdateDevicePart"
 import Vue from "vue";
 import Router from "vue-router";
 Vue.use(Router);
@@ -25,6 +26,9 @@ const routes = [
     },
     {
         path:'/faultHandle/FaultBaseInfo',component:FaultBaseInfo
+    },
+    {
+        path:'/faultHandle/UpdateDevicePart',component:UpdateDevicePart
     }
 ];
 //创建router实例
