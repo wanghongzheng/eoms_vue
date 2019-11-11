@@ -126,6 +126,7 @@
     .baseInfo {
         padding:5px 15px 10px 15px;
         display: flex;
+        font-size:14px;
         clear: both;
         .title{
             float:left;
@@ -147,6 +148,7 @@
     .baseInfo1 {
         padding:15px 15px 15px 15px;
         display: block;
+        font-size:14px;
         clear: both;
         .title{
             float:left;
