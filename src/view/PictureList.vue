@@ -1,115 +1,74 @@
 <template>
-    <div id="star-pic-vue">
-        <template v-if="data">
-            <img e v-for="item in images"
-                 :src="item.url"
-                 :key="item.id"
-                 id="contract_url"
-                      @click="enlargePic"/>
-            <template v-if="isDialogShow">
-            </template>
-            <el-dialog
-                    :visible.sync="centerDialogVisible"
-                    modal
-                    close-on-click-modal
-                    custom-class="dialog"
-            >
-                <el-carousel :autoplay="false" arrow="always">
-                    <el-carousel-item v-for="item in data" :key="item">
-                        <img :src="item">
-                    </el-carousel-item>
-                </el-carousel>
-            </el-dialog>
-        </template>
+    <div>
+        <div class="head">
+            <el-button style="padding-right: 4px" type="text"
+                       v-on:click="goBack">
+                <i class="el-icon-back" style="color:#fff;"></i>
+            </el-button>
+            <label>故障图片</label>
+        </div>
+        <div class="content">
+            <PictureComponent :data="imagesList" :max-show="9" time="今天" style="margin-bottom:25px;"/>
+            <PictureComponent :data="imagesList1" :max-show="5" time="昨天" style="margin-bottom:25px;"/>
+            <PictureComponent :data="imagesList2" :max-show="3" time="2019-11-10" style="margin-bottom:25px;"/>
+        </div>
+
     </div>
 </template>
-
 <script>
-    export default {
-        name: "star-pic-list",
-        props: ["data","maxShow"],
+    import PictureComponent from "../components/PictureComponent";
+    export  default {
         data(){
             return{
-                centerDialogVisible: false,
-                showPic: '',
-                isDialogShow: false,
-                index: 0,
-                images:[
-                {
-                    url: 'http://covteam.u.qiniudn.com/ka2.jpg',
-                    id:"0"
+                imagesList:[
+                    {id:0,url:'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',time:"今天"},
+                    {id:1,url:'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',time:"昨天"},
+                    {id:2,url:'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',time:"昨天"},
+                    {id:3,url:'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',time:"昨天"},
+                    {id:4,url:'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',time:"昨天"},
+                    {id:5,url:'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',time:"昨天"},
+                    {id:6,url:'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',time:"昨天"},
+                    {id:7,url:'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',time:"昨天"},
+                    {id:8,url:'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',time:"昨天"},
+                    {id:9,url:'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',time:"昨天"},
+                    {id:10,url:'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',time:"昨天"},
+                    {id:11,url:'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',time:"昨天"}
+        ], imagesList1:[
+                    {id:12,url:'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',time:"今天"},
+                    {id:13,url:'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',time:"昨天"},
+                    {id:14,url:'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',time:"昨天"},
+                    {id:15,url:'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',time:"昨天"},
+                    {id:16,url:'https://fuss10.elemecdn.com/1/34/19aa98b1fcb2781c4fba33d850549jpeg.jpeg',time:"昨天"}
 
-                },
-                {
-                    url: 'http://covteam.u.qiniudn.com/poster.png',
-                    id:"1"
-
-                }
-            ]
+                ],
+                imagesList2:[
+                    {id:17,url:'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',time:"今天"},
+                    {id:18,url:'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',time:"昨天"}
+                ]
             }
         },
-       /* computed: {
-            images() {
-                if (this.data instanceof Array && this.data.length > 2) {
-                    var value = this.data;
-                    return value.splice(0,this.maxShow);
-                } else {
-                    return this.data;
-                }
+        components: { PictureComponent },
+        methods:{
+            goBack() {
+                this.$router.go(-1);
             }
-        },*/
-        methods: {
-            // 放大图片
-            enlargePic(e){
-                this.isDialogShow = true;
-                this.centerDialogVisible = true;
-                this.showPic = this.data[0];
-                console.log(this.images+e)
-            },
         }
     }
 </script>
-
-<style lang="scss">
-    #star-pic-vue{
-        width: 200px;
-        height: auto;
-        display: flex;
-        flex-wrap: wrap;
-        img{
-            width: 80px;
-            height: 80px;
-            margin: 4px;
+<style scoped lang="scss">
+    .head{
+        background:#3f51b5;
+        color:#fff;
+        padding:10px;
+        i{
+            padding-right:0px;
+            padding-left:10px;
         }
-        .dialog {
-            img{
-                width: 100%;
-                height: 100%;
-                margin: 0;
-            }
-        }
-        .el-carousel__item h3 {
-            color: #475669;
-            font-size: 18px;
-            opacity: 0.75;
-            line-height: 300px;
-            margin: 0;
-            height: 100%;
-            width: 100%;
-        }
-        .el-dialog__header{
-            display: none;
-        }
-        .el-dialog__body {
-            padding: 0 !important;
-            margin: 0 !important;
-            height: 600px;
-        }
-        .el-carousel{
-            height: 100%;
-        }
-        .el-carousel__container {
-            height: 100%;
-        }
+    }
+    .content{
+        height:calc(100vh - 60px);
+        overflow-y: auto;
+        overflow-x: hidden;
+        background:#f7f7f7;
     }
 </style>
