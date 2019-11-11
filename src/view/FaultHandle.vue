@@ -28,7 +28,7 @@
                     </el-button>
                 </label>
             </div>
-            <div class="baseInfo">
+            <div class="baseInfo1">
                 <label>故障信息</label>
                 <div style="margin-top:10px;">
                     <el-upload
@@ -52,8 +52,8 @@
                 </div>
                 <div style="margin-top:10px;">
                     <el-button type="primary" @click="upload()">上  传 </el-button>
-                    <el-button type="primary" @click="handleUploadRoadClose()">取  消</el-button>
-                    <el-button type="primary">查看图片</el-button>
+                <!--    <el-button type="primary" @click="handleUploadRoadClose()">取  消</el-button>-->
+                    <el-button type="primary" @click="viewPicture()">查看图片</el-button>
                 </div>
             </div>
         </div>
@@ -86,6 +86,9 @@
             },
             goUpdateDevicePart(){
                 this.$router.push("/faultHandle/UpdateDevicePart");
+            },
+            viewPicture(){
+                this.$router.push("/faultHandle/PictureList");
             },
             handleRemove(file) {
                 console.log(file);
@@ -191,10 +194,34 @@
             padding-left:10px;
         }
     }
+    .content{
+        height:calc(100vh - 60px);
+        overflow-y: auto;
+        overflow-x: hidden;
+        background:#f7f7f7;
+    }
     .baseInfo {
-        padding:5px 10px 0px 10px;
-        display:block;
+        margin: 10px;
+        padding: 5px 10px 0px 10px;
+        display: block;
         clear: both;
+        height: 35px;
+        background: #fff;
+        .title{
+            float:left;
+            margin-top: 5px;
+        }
+        .op{
+            float:right;
+        }
+    }
+    .baseInfo1{
+        margin: 10px;
+        padding: 10px 10px 0px 10px;
+        display: block;
+        clear: both;
+        height: 245px;
+        background: #fff;
         .title{
             float:left;
             margin-top: 5px;

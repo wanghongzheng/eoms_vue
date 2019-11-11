@@ -208,6 +208,7 @@
         height:calc(100vh - 60px);
         overflow-y: auto;
         overflow-x: hidden;
+        background:#f7f7f7;
     }
 </style>
 <style lang="scss">
