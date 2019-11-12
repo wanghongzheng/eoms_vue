@@ -12,7 +12,6 @@
             <PictureComponent :data="imagesList1" :max-show="5" time="昨天" style="margin-bottom:25px;"/>
             <PictureComponent :data="imagesList2" :max-show="2" time="2019-11-10" style="margin-bottom:25px;"/>
         </div>
-
     </div>
 </template>
 <script>
