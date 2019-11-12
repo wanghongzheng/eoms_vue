@@ -1,17 +1,17 @@
 <template>
-    <div class="messageClass">
-            我是消息页
-    </div>
+  <div class="messageClass">
+    我是消息页
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'message'
-}
+  name: "message"
+};
 </script>
 <style scoped>
-    .messageClass{
-        background:red;
-        color:#fff;
-    }
+.messageClass {
+  background: red;
+  color: #fff;
+}
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-   <!-- <p>
+    <!-- <p>
       <router-link to="/index" class="r1">首页</router-link>
       <router-link to="/message" class="r1">消息页</router-link>
     </p>-->
@@ -8,20 +8,18 @@
   </div>
 </template>
 
-<script>
-
-</script>
+<script></script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   color: #2c3e50;
   overflow: hidden;
 }
-.routerClass{
-  position:absolute;
-  width:100%;
+.routerClass {
+  position: absolute;
+  width: 100%;
   overflow: hidden;
-  transition: all .8s ease;
+  transition: all 0.8s ease;
 }
 </style>
