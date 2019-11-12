@@ -130,7 +130,7 @@ export default {
     upload () {
       var that = this
       that.$refs.upload.clearFiles()
-      if (this.uploadFile.length == 0) {
+      if (this.uploadFile.length === 0) {
         this.$message.warning('请选择上传图片！')
         return false
       }
