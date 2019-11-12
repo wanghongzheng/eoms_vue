@@ -60,92 +60,91 @@
     </div>
 </template>
 <script>
-    export default {
-        data() {
-            return {
-                dialogImageUrl: '',
-                dialogVisible: false,
-                disabled: false,
-                uploadFile: [],
-                thisTitle: "测试",
-                uploadDisabled:false,
-                dialogPicVisible: false
+export default {
+  data () {
+    return {
+      dialogImageUrl: '',
+      dialogVisible: false,
+      disabled: false,
+      uploadFile: [],
+      thisTitle: '测试',
+      uploadDisabled: false,
+      dialogPicVisible: false
 
-            };
-        },
-        components: {
+    }
+  },
+  components: {
 
-        },
-        methods: {
-            goBack() {
-                console.log('go back');
-                this.$router.go(-1);
-            },
-            goFaultBaseInfo(){
-                this.$router.push("/faultHandle/FaultBaseInfo");
-            },
-            goUpdateDevicePart(){
-                this.$router.push("/faultHandle/UpdateDevicePart");
-            },
-            viewPicture(){
-                this.$router.push("/faultHandle/PictureList");
-            },
-            handleRemove(file) {
-                console.log(file);
-            },
-            handleUploadRoadClose() {
-                this.currentDialogVisible = false;
-                this.uploadFile = [];
-                this.$refs.upload.clearFiles();
-                this.$refs.upload.uploadFiles.length = 0;
-                this.$emit("update:dialogVisible", this.currentDialogVisible);
-                this.$message.info("已取消文件上传！");
-            },
-            handlePictureCardPreview(file) {
-                this.dialogImageUrl = file.url;
-                this.dialogVisible = true;
-            },
-            handleLimit(file,fileList){
-                if(fileList.length>=3){
-                    this.uploadDisabled = true;
-                }
-            },
-            uploadSectionFile(param) {
-                var uploadFileLength = this.uploadFile.length;
+  },
+  methods: {
+    goBack () {
+      console.log('go back')
+      this.$router.go(-1)
+    },
+    goFaultBaseInfo () {
+      this.$router.push('/faultHandle/FaultBaseInfo')
+    },
+    goUpdateDevicePart () {
+      this.$router.push('/faultHandle/UpdateDevicePart')
+    },
+    viewPicture () {
+      this.$router.push('/faultHandle/PictureList')
+    },
+    handleRemove (file) {
+      console.log(file)
+    },
+    handleUploadRoadClose () {
+      this.currentDialogVisible = false
+      this.uploadFile = []
+      this.$refs.upload.clearFiles()
+      this.$refs.upload.uploadFiles.length = 0
+      this.$emit('update:dialogVisible', this.currentDialogVisible)
+      this.$message.info('已取消文件上传！')
+    },
+    handlePictureCardPreview (file) {
+      this.dialogImageUrl = file.url
+      this.dialogVisible = true
+    },
+    handleLimit (file, fileList) {
+      if (fileList.length >= 3) {
+        this.uploadDisabled = true
+      }
+    },
+    uploadSectionFile (param) {
+      var uploadFileLength = this.uploadFile.length
 
-                let fileObj = param.file;
+      const fileObj = param.file
 
-                if (fileObj.type === "image/jpeg") {
-                    this.uploadFile[uploadFileLength] = {
-                        imgFile: fileObj
-                    };
-                } else if (fileObj.type === "image/png") {
-                    this.uploadFile[uploadFileLength] = {
-                        imgFile: fileObj
-                    };
-                } else {
-                    this.$message.error("只能上传jpg/png文件");
-                    return;
-                }
-            },
-            upload() {
-                var that = this;
-                that.$refs.upload.clearFiles();
-                if (this.uploadFile.length == 0) {
-                    this.$message.warning("请选择上传图片！");
-                    return false;
-                }
-                for (var int = 0; int < this.uploadFile.length; int++) {
-                    var param = new FormData(); // FormData 对象
-                    var list = this.uploadFile[int];
-                    var file = list.imgFile;
-                    param.append("fileType", "traffic");
-                    param.append("myFiles", file);
-                    param.append("dataId", "1111");
-                    param.append("deviceId", "222");
-                    param.append("stateCode", "1");
-                    this.uploadDisabled = false;
-                 /*   uploadPicFun(param).then(res => {
+      if (fileObj.type === 'image/jpeg') {
+        this.uploadFile[uploadFileLength] = {
+          imgFile: fileObj
+        }
+      } else if (fileObj.type === 'image/png') {
+        this.uploadFile[uploadFileLength] = {
+          imgFile: fileObj
+        }
+      } else {
+        this.$message.error('只能上传jpg/png文件')
+      }
+    },
+    upload () {
+      var that = this
+      that.$refs.upload.clearFiles()
+      if (this.uploadFile.length == 0) {
+        this.$message.warning('请选择上传图片！')
+        return false
+      }
+      for (var int = 0; int < this.uploadFile.length; int++) {
+        var param = new FormData() // FormData 对象
+        var list = this.uploadFile[int]
+        var file = list.imgFile
+        param.append('fileType', 'traffic')
+        param.append('myFiles', file)
+        param.append('dataId', '1111')
+        param.append('deviceId', '222')
+        param.append('stateCode', '1')
+        this.uploadDisabled = false
+        /*   uploadPicFun(param).then(res => {
                         if (res.success) {
                             this.$message.success("文件上传成功！");
                             that.currentDialogVisible = false;
@@ -158,11 +157,11 @@
                             that.$emit("update:dialogVisible", true);
                         }
                         that.$refs.upload.clearFiles();
-                    });*/
-                }
-            }
-        }
+                    }); */
+      }
     }
+  }
+}
 </script>
 <style lang="scss">
  .baseInfo .el-upload--picture-card{

@@ -30,41 +30,41 @@
 </template>
 
 <script>
-    export default {
-        name: "PictureComponent",
-        props: ["data","maxShow","time"],
-        data(){
-            return{
-                centerDialogVisible: false,
-                showPic: '',
-                isDialogShow: false,
-                activeIndex: 1
-            }
-        },
-        computed: {
-            images() {
-                if (this.data instanceof Array && this.data.length > 2) {
-                    var value = this.data;
-                    return value.splice(0,this.maxShow);
-                } else {
-                    return this.data;
-                }
-            }
-        },
-        methods: {
-            // 放大图片
-            enlargePic(i){
-                this.activeIndex = i;
-                this.isDialogShow = true;
-                if(this.$refs.carousel){
-                    //手动切换幻灯片，需要切换的幻灯片的索引，从 0 开始；
-                    // 或相应 el-carousel-item 的 name 属性值
-                    this.$refs.carousel.setActiveItem(i);
-                }
-                this.centerDialogVisible = true;
-            }
-        }
+export default {
+  name: 'PictureComponent',
+  props: ['data', 'maxShow', 'time'],
+  data () {
+    return {
+      centerDialogVisible: false,
+      showPic: '',
+      isDialogShow: false,
+      activeIndex: 1
     }
+  },
+  computed: {
+    images () {
+      if (this.data instanceof Array && this.data.length > 2) {
+        var value = this.data
+        return value.splice(0, this.maxShow)
+      } else {
+        return this.data
+      }
+    }
+  },
+  methods: {
+    // 放大图片
+    enlargePic (i) {
+      this.activeIndex = i
+      this.isDialogShow = true
+      if (this.$refs.carousel) {
+        // 手动切换幻灯片，需要切换的幻灯片的索引，从 0 开始；
+        // 或相应 el-carousel-item 的 name 属性值
+        this.$refs.carousel.setActiveItem(i)
+      }
+      this.centerDialogVisible = true
+    }
+  }
+}
 </script>
 
 <style lang="scss">

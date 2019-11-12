@@ -46,62 +46,62 @@
     </div>
 </template>
 <script>
-    export default {
-        data() {
-            return {
-                dialog: false,
-                loading: false,
-                beginTime: new Date(),
-                endTime: new Date(),
-                options: [{
-                    value: '1',
-                    label: '任务1'
-                }, {
-                    value: '2',
-                    label: '任务2'
-                }, {
-                    value: '3',
-                    label: '任务3'
-                }, {
-                    value: '4',
-                    label: '任务4'
-                }, {
-                    value: '5',
-                    label: '任务5'
-                }, {
-                    value: '6',
-                    label: '任务6'
-                }],
-                form: {
-                    beginTime: '',
-                    endTime: '',
-                    value: '1'
-                },
-                formLabelWidth: '80px'
-            }
-        },
-        props:["visible"],
-        methods:{
-            dateChangeBeginTime(val) {
-                console.log(val);
-                this.form.beginTime = val;
-            },
-            dateChangeEndTime(val) {
-                console.log(val);
-                this.form.endTime = val;
-            },
-            submitData(){
-                this.$confirm('确认关闭？')
-                    .then(_ => {
-                        this.$emit('submitInfo',this.form);
-                        console.info(_);
-                    })
-                    .catch(_ => {
-                        console.info(_);
-                    });
-            }
-        }
+export default {
+  data () {
+    return {
+      dialog: false,
+      loading: false,
+      beginTime: new Date(),
+      endTime: new Date(),
+      options: [{
+        value: '1',
+        label: '任务1'
+      }, {
+        value: '2',
+        label: '任务2'
+      }, {
+        value: '3',
+        label: '任务3'
+      }, {
+        value: '4',
+        label: '任务4'
+      }, {
+        value: '5',
+        label: '任务5'
+      }, {
+        value: '6',
+        label: '任务6'
+      }],
+      form: {
+        beginTime: '',
+        endTime: '',
+        value: '1'
+      },
+      formLabelWidth: '80px'
     }
+  },
+  props: ['visible'],
+  methods: {
+    dateChangeBeginTime (val) {
+      console.log(val)
+      this.form.beginTime = val
+    },
+    dateChangeEndTime (val) {
+      console.log(val)
+      this.form.endTime = val
+    },
+    submitData () {
+      this.$confirm('确认关闭？')
+        .then(_ => {
+          this.$emit('submitInfo', this.form)
+          console.info(_)
+        })
+        .catch(_ => {
+          console.info(_)
+        })
+    }
+  }
+}
 </script>
 <style scoped lang="scss">
     .formItem{

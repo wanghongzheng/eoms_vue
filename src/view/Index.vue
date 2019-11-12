@@ -77,23 +77,22 @@
 <script>
 export default {
   name: 'index',
-    data(){
-      return{
-          faultImage: require('../assets/fault.png'),
-          deviceInfoImage:require('../assets/info.png')
-      }
-    },
-    methods: {
-        loadPage(title){
-            var str = "故障查询1";
-            if(title==str){
-                this.$router.push('/queryfault')
-            }else {
-                this.$message.success(title);
-            }
-
-        }
+  data () {
+    return {
+      faultImage: require('../assets/fault.png'),
+      deviceInfoImage: require('../assets/info.png')
     }
+  },
+  methods: {
+    loadPage (title) {
+      var str = '故障查询1'
+      if (title == str) {
+        this.$router.push('/queryfault')
+      } else {
+        this.$message.success(title)
+      }
+    }
+  }
 }
 </script>
 

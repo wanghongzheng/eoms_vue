@@ -126,42 +126,41 @@
     </div>
 </template>
 <script>
-    import SearchComponent from "../components/SearchComponent"
-    export default {
-        data() {
-            return {
-                drawer: false,
-                direction: 'ttb',
-            };
-        },
-        components: {
-            SearchComponent
-        },
-        methods: {
-            goBack() {
-                console.log('go back');
-                this.$router.go(-1);
-            },
-            handleClose(done) {
-                this.$confirm('确认关闭？')
-                    .then(_ => {
-                        done();
-                        console.info(_);
-                    })
-                    .catch(_ => {
-                        console.info(_);
-                    });
-
-            },
-            handleFault(){
-                this.$router.push("./faultHandle");
-            },
-            submitInfo(param){
-                this.drawer = false;
-                this.$message.success(param.beginTime +"===="+param.endTime+"==="+param.value);
-            }
-        }
+import SearchComponent from '../components/SearchComponent'
+export default {
+  data () {
+    return {
+      drawer: false,
+      direction: 'ttb'
     }
+  },
+  components: {
+    SearchComponent
+  },
+  methods: {
+    goBack () {
+      console.log('go back')
+      this.$router.go(-1)
+    },
+    handleClose (done) {
+      this.$confirm('确认关闭？')
+        .then(_ => {
+          done()
+          console.info(_)
+        })
+        .catch(_ => {
+          console.info(_)
+        })
+    },
+    handleFault () {
+      this.$router.push('./faultHandle')
+    },
+    submitInfo (param) {
+      this.drawer = false
+      this.$message.success(param.beginTime + '====' + param.endTime + '===' + param.value)
+    }
+  }
+}
 </script>
 <style scoped lang="scss">
     .head{

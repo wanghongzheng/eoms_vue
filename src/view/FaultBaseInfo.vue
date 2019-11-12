@@ -78,40 +78,40 @@
     </div>
 </template>
 <script>
-    export default {
-        data() {
-            return {
-                form:{
-                    value1: false,
-                    value2:true,
-                    selctedValue:"1",
-                    handleTime:"",
-                    uploadTime:"",
-                    faultReson:""
-                },
-                options:[{
-                    value: '1',
-                    label: '张正'
-                },{
-                    value: '2',
-                    label: '李明'
-                }]
-            }
-        },
-        methods:{
-            goBack() {
-                console.log('go back');
-                this.$router.go(-1);
-            },
-            dateChangeHandleTime(val) {//处理时间
-                console.log(val);
-                this.form.handleTime = val;
-            },
-            dataChangeUploadTime(val){
-                this.form.uploadTime = val;
-            }
-        }
-    };
+export default {
+  data () {
+    return {
+      form: {
+        value1: false,
+        value2: true,
+        selctedValue: '1',
+        handleTime: '',
+        uploadTime: '',
+        faultReson: ''
+      },
+      options: [{
+        value: '1',
+        label: '张正'
+      }, {
+        value: '2',
+        label: '李明'
+      }]
+    }
+  },
+  methods: {
+    goBack () {
+      console.log('go back')
+      this.$router.go(-1)
+    },
+    dateChangeHandleTime (val) { // 处理时间
+      console.log(val)
+      this.form.handleTime = val
+    },
+    dataChangeUploadTime (val) {
+      this.form.uploadTime = val
+    }
+  }
+}
 </script>
 <style scoped lang="scss">
     .head{
