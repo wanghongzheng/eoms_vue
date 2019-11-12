@@ -7,7 +7,7 @@
                  :src="item.url"
                  :key="index"
                  id="contract_url"
-                      @click="enlargePic"/>
+                      @click="enlargePic(index)"/>
             <template v-if="isDialogShow">
             </template>
             <el-dialog
@@ -17,8 +17,9 @@
                     close-on-click-modal
                     custom-class="dialog"
             >
-                <el-carousel :autoplay="false" arrow="always">
-                    <el-carousel-item v-for="(item,index) in data" :key="index">
+                <el-carousel :autoplay="false" arrow="always" :initial-index="activeIndex"
+                             :loop="false" ref="carousel" indicator-position="outside">
+                    <el-carousel-item v-for="(item,index) in images" :key="index">
                         <img :src="item.url">
                     </el-carousel-item>
                 </el-carousel>
@@ -37,7 +38,8 @@
                 centerDialogVisible: false,
                 showPic: '',
                 isDialogShow: false,
-                index: 0
+                activeIndex: 1,
+                dataImage:""
             }
         },
         computed: {
@@ -52,12 +54,16 @@
         },
         methods: {
             // 放大图片
-            enlargePic(e){
+            enlargePic(i){
+                this.activeIndex = i;
+                if(this.$refs.carousel){
+                    //手动切换幻灯片，需要切换的幻灯片的索引，从 0 开始；
+                    // 或相应 el-carousel-item 的 name 属性值
+                    this.$refs.carousel.setActiveItem(i);
+                }
                 this.isDialogShow = true;
                 this.centerDialogVisible = true;
-                this.showPic = this.data[0];
-                console.log(this.images+e)
-            },
+            }
         }
     }
 </script>
@@ -108,13 +114,17 @@
         .el-dialog__body {
             padding: 0 !important;
             margin: 0 !important;
-            height: 400px;
+            height: 460px;
+            background: #171717;
         }
         .el-carousel{
             height: 100%;
         }
         .el-carousel__container {
-            height: 100%;
+            height: 410px;
+        }
+        .el-carousel__indicators--outside{
+            margin-top:20px;
         }
     }
 </style>
