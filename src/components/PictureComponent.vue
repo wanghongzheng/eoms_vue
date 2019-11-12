@@ -1,6 +1,6 @@
 <template>
 <div>
-    <label style="display:block;margin: 10px 20px 5px;">{{time}}</label>
+    <label class="timeline">{{time}}</label>
     <div id="star-pic-vue">
         <template v-if="data">
             <img e v-for="(item,index) in images"
@@ -68,6 +68,10 @@
 </script>
 
 <style lang="scss">
+    .timeline{
+        display: block;
+        margin: 10px 20px 5px;
+    }
     #star-pic-vue  .el-dialog__wrapper{
         position: fixed;
         top: 0;
