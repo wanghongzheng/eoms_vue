@@ -38,8 +38,7 @@
                 centerDialogVisible: false,
                 showPic: '',
                 isDialogShow: false,
-                activeIndex: 1,
-                dataImage:""
+                activeIndex: 1
             }
         },
         computed: {
@@ -56,12 +55,12 @@
             // 放大图片
             enlargePic(i){
                 this.activeIndex = i;
+                this.isDialogShow = true;
                 if(this.$refs.carousel){
                     //手动切换幻灯片，需要切换的幻灯片的索引，从 0 开始；
                     // 或相应 el-carousel-item 的 name 属性值
                     this.$refs.carousel.setActiveItem(i);
                 }
-                this.isDialogShow = true;
                 this.centerDialogVisible = true;
             }
         }
@@ -85,7 +84,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: stretch;
-        padding:13px;
+        padding:3px 13px;
         img{
             width: 82px;
             height: 80px;
