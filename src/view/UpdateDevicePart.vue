@@ -92,7 +92,7 @@ export default {
         {
           prop: "type",
           text: "地址",
-          align: "right"
+          align: "center"
         }
       ]
     };

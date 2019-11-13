@@ -5,6 +5,7 @@ import FaultHandle from "./view/FaultHandle";
 import FaultBaseInfo from "./view/FaultBaseInfo";
 import UpdateDevicePart from "./view/UpdateDevicePart";
 import PictureList from "./view/PictureList";
+import TestComponent from "./components/TestComponent";
 import Vue from "vue";
 import Router from "vue-router";
 Vue.use(Router);
@@ -41,6 +42,10 @@ const routes = [
   {
     path: "/faultHandle/PictureList",
     component: PictureList
+  },
+  {
+    path: "/faultHandle/TestComponent",
+    component: TestComponent
   }
 ];
 // 创建router实例

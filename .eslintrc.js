@@ -19,6 +19,7 @@ module.exports = {
     "prettier/prettier": "error",
     quotes: [0, "single"],
     semi: 0,
-    "space-before-function-paren": 0
+    "space-before-function-paren": 0, // 关闭方法名后面又空格
+    "no-console": "off" // 不能出现no-console
   }
 };

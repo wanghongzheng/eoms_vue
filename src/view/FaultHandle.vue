@@ -64,6 +64,7 @@
           <el-button type="primary" @click="upload()">上 传 </el-button>
           <!--    <el-button type="primary" @click="handleUploadRoadClose()">取  消</el-button>-->
           <el-button type="primary" @click="viewPicture()">查看图片</el-button>
+          <el-button type="primary" @click="test()">测试</el-button>
         </div>
       </div>
     </div>
@@ -96,6 +97,9 @@ export default {
     },
     viewPicture() {
       this.$router.push("/faultHandle/PictureList");
+    },
+    test() {
+      this.$router.push("/faultHandle/TestComponent");
     },
     handleRemove(file) {
       console.log(file);

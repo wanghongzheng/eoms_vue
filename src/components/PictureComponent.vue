@@ -19,7 +19,18 @@
           close-on-click-modal
           custom-class="dialog"
         >
-          <el-carousel
+          <swiper
+            :options="swiperOption"
+            ref="imgOverview"
+            style="height: 100%;"
+          >
+            <swiper-slide v-for="(img, index) in images" :key="index">
+              <div class="swiper-zoom-container">
+                <img :src="img.url" alt="" />
+              </div>
+            </swiper-slide>
+          </swiper>
+          <!-- <el-carousel
             :autoplay="false"
             arrow="always"
             :initial-index="activeIndex"
@@ -28,9 +39,13 @@
             indicator-position="outside"
           >
             <el-carousel-item v-for="(item, index) in images" :key="index">
-              <img :src="item.url" />
+              <img
+                :src="item.url"
+                @touchstart="touchStart"
+                @touchend="touchEnd($event, index, images.length)"
+              />
             </el-carousel-item>
-          </el-carousel>
+          </el-carousel>-->
         </el-dialog>
       </template>
     </div>
@@ -38,6 +53,7 @@
 </template>
 
 <script>
+import { swiper, swiperSlide } from "vue-awesome-swiper";
 export default {
   name: "PictureComponent",
   props: ["data", "maxShow", "time"],
@@ -46,7 +62,13 @@ export default {
       centerDialogVisible: false,
       showPic: "",
       isDialogShow: false,
-      activeIndex: 1
+      activeIndex: 1,
+      startX: 0,
+      swiperOption: {
+        width: window.innerWidth,
+        zoom: true,
+        initialSlide: 0
+      }
     };
   },
   computed: {
@@ -58,6 +80,10 @@ export default {
         return this.data;
       }
     }
+  },
+  components: {
+    swiper,
+    swiperSlide
   },
   methods: {
     // 放大图片
