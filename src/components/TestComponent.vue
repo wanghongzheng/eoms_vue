@@ -1,12 +1,16 @@
 <template>
   <div id="slider" class="slider">
-    <swiper :options="swiperOption" ref="imgOverview" style="height: 100%;">
+    <swiper :options="swiperOption" ref="mySwiper" style="height: 100%;">
       <swiper-slide v-for="(img, index) in previewImg" :key="index">
         <div class="swiper-zoom-container">
           <img :src="img.url" alt="" />
         </div>
       </swiper-slide>
     </swiper>
+    <button @click="test"></button>
+    <!-- <div class="group-box" v-for="(item,index) in templateDate" :key="index"
+         @touchstart="showDeleteButton(item,index)" @touchend="clearLoop(item,index)">
+    </div>-->
   </div>
 </template>
 <script>
@@ -21,7 +25,19 @@ export default {
       swiperOption: {
         width: window.innerWidth,
         zoom: true,
-        initialSlide: 0
+        initialSlide: 0,
+        on: {
+          // 使用es6的箭头函数，使this指向vue对象
+          click: () => {
+            console.info(this.$refs.mySwiper);
+            // 通过$refs获取对应的swiper对象
+            const swiper = this.$refs.mySwiper.swiper;
+            const i = swiper.activeIndex;
+            // let flag = this.imgList[i];
+            // location.href = flag.url;
+            console.info(i);
+          }
+        }
       },
       previewImg: [
         {
@@ -44,6 +60,11 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    test() {
+      console.info(this.$refs.mySwiper);
+    }
   }
 };
 </script>

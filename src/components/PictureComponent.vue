@@ -19,18 +19,14 @@
           close-on-click-modal
           custom-class="dialog"
         >
-          <swiper
-            :options="swiperOption"
-            ref="imgOverview"
-            style="height: 100%;"
-          >
+          <swiper :options="swiperOption" ref="mySwiper" style="height: 100%;">
             <swiper-slide v-for="(img, index) in images" :key="index">
               <div class="swiper-zoom-container">
                 <img :src="img.url" alt="" />
               </div>
             </swiper-slide>
           </swiper>
-          <!-- <el-carousel
+          <!--   <el-carousel
             :autoplay="false"
             arrow="always"
             :initial-index="activeIndex"
@@ -90,11 +86,12 @@ export default {
     enlargePic(i) {
       this.activeIndex = i;
       this.isDialogShow = true;
-      if (this.$refs.carousel) {
-        // 手动切换幻灯片，需要切换的幻灯片的索引，从 0 开始；
-        // 或相应 el-carousel-item 的 name 属性值
-        this.$refs.carousel.setActiveItem(i);
-      }
+      // 使用$refs，如果ref是定位在有v-if、v-for、v-show中的DOM节点，
+      // 返回来的只能是undefined，因为在mounted阶段他们根本不存在
+      this.$nextTick(() => {
+        var swiper = this.$refs.mySwiper.swiper;
+        swiper.activeIndex = i;
+      });
       this.centerDialogVisible = true;
     }
   }
