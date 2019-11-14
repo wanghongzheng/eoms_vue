@@ -181,14 +181,14 @@ export default {
   border-radius: 6px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  width: 110px;
-  height: 110px;
-  line-height: 110px;
+  width: 98px;
+  height: 98px;
+  line-height: 98px;
   vertical-align: top;
 }
 .baseInfo1 .el-upload-list--picture-card .el-upload-list__item {
-  width: 110px;
-  height: 110px;
+  width: 98px;
+  height: 98px;
 }
 .disabled .el-upload--picture-card {
   display: none !important;
