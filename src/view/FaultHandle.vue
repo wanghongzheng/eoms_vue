@@ -40,7 +40,7 @@
         </label>
       </div>
       <div class="baseInfo1">
-        <label>故障信息</label>
+        <label>故障信息<span>(最多上传3张图片)</span></label>
         <div style="margin-top:10px;">
           <el-upload
             action="auto"
@@ -175,7 +175,7 @@ export default {
 };
 </script>
 <style lang="scss">
-.baseInfo .el-upload--picture-card {
+.baseInfo1 .el-upload--picture-card {
   background-color: #fbfdff;
   border: 1px dashed #c0ccda;
   border-radius: 6px;
@@ -186,7 +186,7 @@ export default {
   line-height: 110px;
   vertical-align: top;
 }
-.baseInfo .el-upload-list--picture-card .el-upload-list__item {
+.baseInfo1 .el-upload-list--picture-card .el-upload-list__item {
   width: 110px;
   height: 110px;
 }
@@ -232,6 +232,11 @@ export default {
   clear: both;
   height: 245px;
   background: #fff;
+  span {
+    font-size: 12px;
+    float: right;
+    margin-right: 10px;
+  }
   .title {
     float: left;
     margin-top: 5px;
