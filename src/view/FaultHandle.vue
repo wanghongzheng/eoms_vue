@@ -57,6 +57,24 @@
             ref="upload"
           >
             <i class="el-icon-plus" style="width:96px;height:96px;"></i>
+            <div slot="file" slot-scope="{ file }">
+              <img
+                class="el-upload-list__item-thumbnail"
+                :src="file.url"
+                alt=""
+              />
+              <span class="el-upload-list__item-actions">
+                <span
+                  class="el-upload-list__item-delete"
+                  @click="handleRemove(file)"
+                >
+                  <i
+                    class="el-icon-delete"
+                    style="vertical-align:top;margin-top:4px;margin-right:2px;"
+                  ></i>
+                </span>
+              </span>
+            </div>
           </el-upload>
           <el-dialog :visible.sync="dialogPicVisible" width="80%">
             <img width="100%" :src="dialogImageUrl" alt="" />
@@ -66,7 +84,7 @@
           <el-button type="primary" @click="upload()">上 传 </el-button>
           <el-button type="primary" @click="viewPicture()">查看图片</el-button>
         </div>
-        <div style="margin-top:10px;">
+        <div style="margin-top:10px;display:none;">
           <el-button type="primary" @click="test()">图片滑动测试</el-button>
           <el-button type="primary" @click="testUploadFile()"
             >测试上传文件插件</el-button
@@ -113,6 +131,12 @@ export default {
     },
     handleRemove(file) {
       console.log(file);
+      var fileList = this.$refs.upload.uploadFiles;
+      var index = fileList.findIndex(fileItem => {
+        return fileItem.uid === file.uid;
+      });
+      fileList.splice(index, 1);
+      this.uploadDisabled = false;
     },
     handlePictureCardPreview(file) {
       console.info("测试吧");
@@ -251,7 +275,7 @@ export default {
   span {
     font-size: 12px;
     float: right;
-    margin-right: 10px;
+    //margin-right: 10px;
   }
   .title {
     float: left;
@@ -260,5 +284,33 @@ export default {
   .op {
     float: right;
   }
+}
+
+.baseInfo1 .el-upload-list--picture-card .el-upload-list__item-actions span {
+  display: inline-block;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  background-color: red;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+.baseInfo1 .el-upload-list--picture-card .el-upload-list__item-actions {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  left: 0;
+  top: 0;
+  cursor: default;
+  text-align: right;
+  color: #fff;
+  opacity: 1;
+  font-size: 20px;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  //margin-top: -15px;
+}
+.baseInfo1 .el-upload-list--picture-card .el-upload-list__item-actions {
+  background: transparent;
 }
 </style>
