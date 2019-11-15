@@ -57,6 +57,7 @@
             format="yyyy-MM-dd HH:mm:ss"
             value-format="yyyy-MM-dd HH:mm:ss"
             default-time="23:59:59"
+            :editable="false"
             @change="dateChangeHandleTime"
           >
           </el-date-picker>
@@ -73,6 +74,7 @@
             format="yyyy-MM-dd HH:mm:ss"
             value-format="yyyy-MM-dd HH:mm:ss"
             default-time="23:59:59"
+            :editable="false"
             @change="dataChangeUploadTime"
           >
           </el-date-picker>
