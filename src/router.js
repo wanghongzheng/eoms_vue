@@ -6,6 +6,7 @@ import FaultBaseInfo from "./view/FaultBaseInfo";
 import UpdateDevicePart from "./view/UpdateDevicePart";
 import PictureList from "./view/PictureList";
 import TestComponent from "./components/TestComponent";
+import UploadFileComponent from "./components/UploadFileComponent";
 import Vue from "vue";
 import Router from "vue-router";
 Vue.use(Router);
@@ -46,6 +47,10 @@ const routes = [
   {
     path: "/faultHandle/TestComponent",
     component: TestComponent
+  },
+  {
+    path: "/faultHandle/UploadFileComponent",
+    component: UploadFileComponent
   }
 ];
 // 创建router实例

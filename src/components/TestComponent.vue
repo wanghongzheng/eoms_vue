@@ -7,10 +7,7 @@
         </div>
       </swiper-slide>
     </swiper>
-    <button @click="test"></button>
-    <!-- <div class="group-box" v-for="(item,index) in templateDate" :key="index"
-         @touchstart="showDeleteButton(item,index)" @touchend="clearLoop(item,index)">
-    </div>-->
+    <button @click="test">测试</button>
   </div>
 </template>
 <script>
@@ -39,6 +36,10 @@ export default {
           }
         }
       },
+      imgList: [],
+      datas: new FormData(),
+      files: 0,
+      size: 0,
       previewImg: [
         {
           id: 0,

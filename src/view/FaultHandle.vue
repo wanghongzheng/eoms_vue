@@ -43,12 +43,14 @@
         <label>故障信息<span>(最多上传3张图片)</span></label>
         <div style="margin-top:10px;">
           <el-upload
-            action="auto"
-            :http-request="uploadSectionFile"
+            action="#"
             list-type="picture-card"
+            accept="image/*"
+            :file-list="productImgs"
+            :http-request="uploadSectionFile"
             :on-preview="handlePictureCardPreview"
-            :on-remove="handleRemove"
             :on-change="handleLimit"
+            :on-exceed="handleExceed"
             :limit="3"
             multiple
             :class="{ disabled: uploadDisabled }"
@@ -56,15 +58,19 @@
           >
             <i class="el-icon-plus" style="width:96px;height:96px;"></i>
           </el-upload>
-          <el-dialog :visible.sync="dialogPicVisible">
-            <img height="100%" :src="dialogImageUrl" alt="" />
+          <el-dialog :visible.sync="dialogPicVisible" width="80%">
+            <img width="100%" :src="dialogImageUrl" alt="" />
           </el-dialog>
         </div>
         <div style="margin-top:10px;">
           <el-button type="primary" @click="upload()">上 传 </el-button>
-          <!--    <el-button type="primary" @click="handleUploadRoadClose()">取  消</el-button>-->
           <el-button type="primary" @click="viewPicture()">查看图片</el-button>
-          <el-button type="primary" @click="test()">测试</el-button>
+        </div>
+        <div style="margin-top:10px;">
+          <el-button type="primary" @click="test()">图片滑动测试</el-button>
+          <el-button type="primary" @click="testUploadFile()"
+            >测试上传文件插件</el-button
+          >
         </div>
       </div>
     </div>
@@ -77,6 +83,7 @@ export default {
       dialogImageUrl: "",
       dialogVisible: false,
       disabled: false,
+      productImgs: [],
       uploadFile: [],
       thisTitle: "测试",
       uploadDisabled: false,
@@ -101,8 +108,21 @@ export default {
     test() {
       this.$router.push("/faultHandle/TestComponent");
     },
+    testUploadFile() {
+      this.$router.push("/faultHandle/UploadFileComponent");
+    },
     handleRemove(file) {
       console.log(file);
+    },
+    handlePictureCardPreview(file) {
+      console.info("测试吧");
+      this.dialogImageUrl = file.url;
+      this.dialogPicVisible = true;
+    },
+    handleExceed(files, fileList) {
+      // 图片上传超过数量限制
+      this.$message.error("上传图片不能超过6张!");
+      console.log(files, fileList);
     },
     handleUploadRoadClose() {
       this.currentDialogVisible = false;
@@ -111,10 +131,6 @@ export default {
       this.$refs.upload.uploadFiles.length = 0;
       this.$emit("update:dialogVisible", this.currentDialogVisible);
       this.$message.info("已取消文件上传！");
-    },
-    handlePictureCardPreview(file) {
-      this.dialogImageUrl = file.url;
-      this.dialogVisible = true;
     },
     handleLimit(file, fileList) {
       if (fileList.length >= 3) {
